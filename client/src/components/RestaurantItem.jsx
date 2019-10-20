@@ -1,10 +1,22 @@
 import React from 'react';
 
-const RestaurantItem = () => {
+const RestaurantItem = (props) => {
+ 
+    let {restaurant} = props;
     return (
-        <div>
-            Inside RestaurantItem
-        </div>
+        <li className="restaurant">
+            <span>
+                {restaurant.url}
+            </span>
+            <span>
+                
+                {restaurant.id}  
+               
+                {restaurant.name} 
+                
+                {restaurant.categories}
+            </span>   
+        </li>
     )
 }
 

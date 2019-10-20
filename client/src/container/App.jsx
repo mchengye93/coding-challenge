@@ -21,9 +21,9 @@ class App extends Component {
   render() {
     console.log(this.state);
     return (
-      <div>
+      <div className='App tc'>
         <h2>Welcome to my Top Restaurant's List!</h2>
-        <RestaurantList/>
+        <RestaurantList restaurants={this.state.restaurants}/>
       </div>
     );
   }
