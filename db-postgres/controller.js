@@ -41,13 +41,17 @@ const addRestaurant = (restaurant) => {
 }
 
 const updateRestaurant = (restaurant) => {
+    console.log('inside controller' ,restaurant);
     const {id, name,categories, phone, price, location} = restaurant;
-    const query =  `UPDATE restaurants SET name = ${name}, phone= ${phone}, categories = ${categories}, ` +
-    `price = ${price} , location = ${location} WHERE  id = ${id}`;
+    const query =  `UPDATE restaurants SET name = '${name}', phone= '${phone}', categories = '${categories}', ` +
+    `price = '${price}' , location = '${location}' WHERE  id = ${id}`;
 
     return new Promise((resolve,reject) => {
         connection.query(query, (err,res) => {
-            if(err) return reject(err);
+            if(err) {
+                console.log(err);
+                return reject(err);
+            }
             resolve(res);
         })
     })

@@ -42,6 +42,7 @@ app.get('/api/restaurants', async (req, res) => {
   app.put('/api/restaurant', async (req, res)=> {
     try {
       let restaurant = req.body;
+      console.log(restaurant);  
       const updateRestaurant = await restaurants.updateRestaurant(restaurant);
       res.status(200).send(updateRestaurant);
     } catch (e) {

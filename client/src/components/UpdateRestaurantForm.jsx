@@ -32,10 +32,6 @@ class UpdateRestaurantForm extends Component {
 
     }
 
-    componentDidMount() {
-    
-    }
-
     handleClickOpen() {
         this.setState({open: true});
       }
@@ -45,11 +41,17 @@ class UpdateRestaurantForm extends Component {
       }
 
     handleUpdate(event) {
-    
+    event.preventDefault();
+    axios.put('/api/restaurant', this.state)
+    .then((response)=> {
+        console.log(response); 
+        this.setState({open:false});        
+    }).catch((error)=> {
+        alert('Error updating restaurant');
+    })
     
     }
 
- 
     handleInputChange(event) {
         const target = event.target;
         const value = target.value;
@@ -63,7 +65,6 @@ class UpdateRestaurantForm extends Component {
       }
 
     render() {
-     
         console.log(this.state);
             return (
                 <div>
