@@ -10,6 +10,7 @@ const SearchRestaurantItem = (props) => {
 
     return (
         <li className="restaurant">
+        
         <div style={{display: 'flex'}}>
             <div className='pa1' >
                 <img src={restaurant.image_url} alt={restaurant.name + 'photo'} height="100" width="100"/>

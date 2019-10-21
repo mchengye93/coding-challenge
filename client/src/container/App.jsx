@@ -4,6 +4,12 @@ import RestaurantList from '../components/RestaurantList.jsx';
 import SearchBar from '../components/SearchBar.jsx';
 import SearchRestaurantForm from './SearchRestaurantForm.jsx';
 
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -12,13 +18,15 @@ class App extends Component {
       categories: [],
       search:false,
       searchInput: '',
-      category: 'All'
+      category: 'All',
+      value: 1,
     }
     this.handleDeleteRestaurant = this.handleDeleteRestaurant.bind(this);
     this.getAllRestaurants = this.getAllRestaurants.bind(this);
     this.search = this.search.bind(this);
     this.addRestaurant = this.addRestaurant.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
   componentDidMount() {
 
@@ -79,6 +87,16 @@ class App extends Component {
     })
     
   }
+  handleChange(e){
+    console.log(e.target.innerHTML);
+    let text = e.target.innerHTML;
+    if (text.toUpperCase() === 'SEARCH') {
+      this.setState({search: 0});
+    } else {
+      this.setState({search: 1});
+    }
+ 
+  }
 
   search() {
     this.setState({search: false});
@@ -110,7 +128,18 @@ class App extends Component {
       <div className='App tc '>
         <h2>Welcome to my Top Restaurant's List!</h2>
         <div>
-        <button onClick={this.addRestaurant}>Add Restaurant</button> <button onClick={this.search}>Search</button>
+        <Paper >
+          <Tabs
+            value={this.state.search}
+            onChange={this.handleChange}
+            indicatorColor="primary"
+            textColor="primary"
+            centered
+          >
+            <Tab label="Search"/>
+            <Tab label="Add Restaurant"/>
+          </Tabs>
+        </Paper>
         </div>
         <div className='flex justify-center'>
         {this.state.search ? <SearchRestaurantForm /> : <RestaurantList 
