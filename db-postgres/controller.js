@@ -40,6 +40,20 @@ const addRestaurant = (restaurant) => {
       });
 }
 
+const updateRestaurant = (restaurant) => {
+    const {id, name,categories, phone, price, location} = restaurant;
+    const query =  `UPDATE restaurants SET name = ${name}, phone= ${phone}, categories = ${categories}, ` +
+    `price = ${price} , location = ${location} WHERE  id = ${id}`;
+
+    return new Promise((resolve,reject) => {
+        connection.query(query, (err,res) => {
+            if(err) return reject(err);
+            resolve(res);
+        })
+    })
+    
+}
+
 const deleteRestaurant = (restaurantId) => {
 
     const query = `DELETE FROM restaurants WHERE id=${restaurantId}`;
@@ -52,8 +66,10 @@ const deleteRestaurant = (restaurantId) => {
     })
 }
 
+
 module.exports  = {
     getAllRestaurants,
     addRestaurant, 
+    updateRestaurant,
     deleteRestaurant
 }

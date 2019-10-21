@@ -16,6 +16,7 @@ class UpdateRestaurantForm extends Component {
 
         this.state = {
         open: false,
+        id: props.restaurant.id,
         name: props.restaurant.name,
         price: props.restaurant.price,
         phone: props.restaurant.phone,
