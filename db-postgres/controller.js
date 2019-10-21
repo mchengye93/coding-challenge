@@ -40,7 +40,20 @@ const addRestaurant = (restaurant) => {
       });
 }
 
+const deleteRestaurant = (restaurantId) => {
+
+    const query = `DELETE FROM restaurants WHERE id=${restaurantId}`;
+
+    return new Promise((resolve,reject) => {
+        connection.query(query, (err,res) => {
+            if(err) return reject(err);
+            resolve(res);
+        })
+    })
+}
+
 module.exports  = {
     getAllRestaurants,
-    addRestaurant
+    addRestaurant, 
+    deleteRestaurant
 }

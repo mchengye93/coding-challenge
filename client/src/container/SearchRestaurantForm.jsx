@@ -18,14 +18,12 @@ class SearchRestaurantForm extends Component {
       handleSearch(event) {
         
         event.preventDefault();
-        console.log(event.target.search_input.value);
         let restaurant = event.target.search_input.value;
 
         if (restaurant.length > 0) {
           axios.get('/yelp',{params: { term: restaurant }})
           .then((response)=> {
             var yelpResults = response.data;
-            console.log(yelpResults);
             this.setState({ 
                 restaurants: yelpResults
             })
@@ -38,7 +36,6 @@ class SearchRestaurantForm extends Component {
       }
 
       handleAddRestaurant(restaurant) {
-        console.log('received restaurant at searchform', restaurant);
         let restaurantObj = {
           name: restaurant.name,
           category: restaurant.categories[0].title,

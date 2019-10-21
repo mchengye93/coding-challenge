@@ -19,7 +19,6 @@ app.listen(PORT, () => console.log('Listening on port: ' + PORT));
 /* CREATE restaurant */
 app.post('/api/restaurant', async (req, res) => {
   try {
-    console.log('inside server api post restaurant', req.body);
     let restaurant = req.body;
     const addRestaurant = await restaurants.addRestaurant(restaurant);
     res.status(201).send(addRestaurant);
@@ -39,6 +38,18 @@ app.get('/api/restaurants', async (req, res) => {
     }
   });
 
+  /* DELETE restaurant */
+  app.delete('/api/restaurant', async (req,res) => {
+   
+    try {
+      let id = req.body.id;
+      const deleteRestaurant = await restaurants.deleteRestaurant(id);
+      res.status(200).send(deleteRestaurant);
+    } catch(e) {
+      res.status(400).send(e);
+    }
+  })
+
 
 
 
@@ -56,7 +67,6 @@ app.get('/api/restaurants', async (req, res) => {
     client.search(searchRequest).then(response => {
       const results = response.jsonBody.businesses;
       const prettyJson = JSON.stringify(results, null, 4);
-      console.log(prettyJson);
       res.status(200);
       res.send(prettyJson);
     }).catch(e => {
