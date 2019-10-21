@@ -5,7 +5,6 @@ const SearchRestaurantItem = (props) => {
     let {restaurant} = props;
 
     function handleAddRestaurant() {
-        console.log('called handleADd inside search item!', restaurant);
         props.handleAddRestaurant(restaurant);
     }
 

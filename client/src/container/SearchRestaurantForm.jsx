@@ -61,7 +61,6 @@ class SearchRestaurantForm extends Component {
       render() {
         return (
           <div >
-            <h2>Welcome to Search Restaurant!</h2>
             <SearchBar handleSearch={this.handleSearch}/>
             <SearchRestaurantList restaurants={this.state.restaurants} handleAddRestaurant={this.handleAddRestaurant}/>
           </div>
