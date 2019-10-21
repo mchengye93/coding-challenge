@@ -10,11 +10,11 @@ const RestaurantItem = (props) => {
             </span>
             <span>
                 
-                {restaurant.id}  
+                restaurant id: {restaurant.id}  
                
-                {restaurant.name} 
+                restaurant name: {restaurant.name} 
                 
-                {restaurant.categories}
+                restaurant categories: {restaurant.categories}
             </span>   
         </li>
     )

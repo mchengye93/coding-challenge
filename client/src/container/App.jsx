@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import RestaurantList from '../components/RestaurantList.jsx';
+import SearchBar from '../components/SearchBar.jsx';
+import SearchRestaurantForm from './SearchRestaurantForm.jsx';
 
 class App extends Component {
   constructor(props) {
@@ -19,11 +21,11 @@ class App extends Component {
    
   }
   render() {
-    console.log(this.state);
     return (
-      <div className='App tc'>
+      <div >
         <h2>Welcome to my Top Restaurant's List!</h2>
         <RestaurantList restaurants={this.state.restaurants}/>
+        <SearchRestaurantForm />
       </div>
     );
   }

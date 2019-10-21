@@ -27,7 +27,8 @@
     "nodemon": "^1.19.2",
     "pg": "^7.12.1",
     "react": "^16.10.1",
-    "react-dom": "^16.10.1"
+    "react-dom": "^16.10.1",
+    "yelp-fusion": "^3.0.0"
   },
   "babel": {
     "presets": [
