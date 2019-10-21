@@ -3,7 +3,7 @@ import RestaurantItem from './RestaurantItem.jsx';
 import SearchList from './SearchList.jsx';
 
 const RestaurantList = (props) => {
-    let {restaurants, categories} = props;
+    let {restaurants, categories, handleDeleteRestaurant, getAllRestaurants} = props;
    
     return (
         <div>
@@ -13,7 +13,11 @@ const RestaurantList = (props) => {
             <ul style={{listStyleType: 'none'}}>
             {
                 restaurants.map((restaurant) => {
-                    return <RestaurantItem key={restaurant.id} restaurant={restaurant} handleDeleteRestaurant={props.handleDeleteRestaurant}/>
+                    return <RestaurantItem 
+                    key={restaurant.id} 
+                    restaurant={restaurant} 
+                    handleDeleteRestaurant={handleDeleteRestaurant}
+                    getAllRestaurants={getAllRestaurants}/>
                 })
             }
             </ul>

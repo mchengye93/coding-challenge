@@ -1,8 +1,9 @@
 import React from 'react';
 import UpdateRestaurantForm from './UpdateRestaurantForm.jsx';
+import DeleteRestaurantDialog from './DeleteRestaurantDialog.jsx';
 const RestaurantItem = (props) => {
  
-    let {restaurant} = props;
+    let {restaurant, getAllRestaurants} = props;
     function handleDeleteRestaurant() {
         props.handleDeleteRestaurant(restaurant.id);
     }
@@ -20,8 +21,14 @@ const RestaurantItem = (props) => {
             {restaurant.location}<br/>
             </div>
             <div className="w-25 pa1 ">
-                <UpdateRestaurantForm restaurant={restaurant}/> <br/>
-                <button onClick={handleDeleteRestaurant}>Delete</button>
+                <UpdateRestaurantForm 
+                restaurant={restaurant} 
+                getAllRestaurants={getAllRestaurants}/> <br/>
+                
+                <DeleteRestaurantDialog 
+                restaurant={restaurant} 
+                getAllRestaurants={getAllRestaurants}/>
+            
             </div>
         </div>
        

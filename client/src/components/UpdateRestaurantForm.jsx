@@ -45,8 +45,10 @@ class UpdateRestaurantForm extends Component {
     axios.put('/api/restaurant', this.state)
     .then((response)=> {
         console.log(response); 
-        this.setState({open:false});        
+        this.setState({open:false});  
+        this.props.getAllRestaurants();      
     }).catch((error)=> {
+        console.log(error);
         alert('Error updating restaurant');
     })
     
@@ -68,7 +70,7 @@ class UpdateRestaurantForm extends Component {
         console.log(this.state);
             return (
                 <div>
-                <Button variant="contained" color="secondary" onClick={this.handleClickOpen}>
+                <Button variant="contained" color="primary" onClick={this.handleClickOpen}>
                   Update
                 </Button>
                 <Dialog open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
@@ -136,7 +138,7 @@ class UpdateRestaurantForm extends Component {
                     <Button onClick={this.handleUpdate} color="primary">
                       Update
                     </Button>
-                    <Button onClick={this.handleClose} color="primary">
+                    <Button onClick={this.handleClose} color="secondary">
                       Cancel
                     </Button>
                   </DialogActions>

@@ -23,8 +23,6 @@ class App extends Component {
     }
     this.handleDeleteRestaurant = this.handleDeleteRestaurant.bind(this);
     this.getAllRestaurants = this.getAllRestaurants.bind(this);
-    this.search = this.search.bind(this);
-    this.addRestaurant = this.addRestaurant.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
@@ -98,12 +96,7 @@ class App extends Component {
  
   }
 
-  search() {
-    this.setState({search: false});
-  } 
-  addRestaurant() {
-    this.setState({search: true});
-  }
+
   render() {
     //console.log(this.state);
     let {searchInput , category, restaurants} = this.state;
@@ -146,7 +139,8 @@ class App extends Component {
         restaurants={restaurantsList} 
         handleDeleteRestaurant={this.handleDeleteRestaurant}
         categories={this.state.categories}
-        handleSearch={this.handleSearch}/>
+        handleSearch={this.handleSearch}
+        getAllRestaurants={this.getAllRestaurants}/>
         } 
         </div>
       
