@@ -3,6 +3,8 @@ import React from 'react';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 
+import AddRestaurantForm from './AddRestaurantForm.jsx';
+
 const SearchRestaurantItem = (props) => {
  
     let {restaurant} = props;
@@ -26,7 +28,7 @@ const SearchRestaurantItem = (props) => {
                     {restaurant.location.display_address.join(' ')}<br/>
                 </TableCell>
                 <TableCell >  
-                    <button onClick={handleAddRestaurant}>Add</button>
+                    <AddRestaurantForm restaurant={restaurant} getAllRestaurants={props.getAllRestaurants}/>
                 </TableCell>
               </TableRow>
     )

@@ -8,9 +8,15 @@ const RestaurantList = (props) => {
 
     if(restaurants.length) {
         return (
-        
-            <div className="pa1">
-                <h3>Yelp Results:</h3>
+            <div>
+                <div style={{ padding: '15px', 
+                textAlign: 'center', 
+                background: '#d32323',
+                color: 'white',
+                fontSize: '20px' }}>
+                    <h3>Yelp Results</h3>
+                </div>
+                
                 <Table>
                     <TableBody>
                 {
@@ -18,6 +24,7 @@ const RestaurantList = (props) => {
                         return <SearchRestaurantItem 
                         key={restaurant.id} 
                         restaurant={restaurant} 
+                        getAllRestaurants={props.getAllRestaurants}
                         handleAddRestaurant= {props.handleAddRestaurant}/>
                     })
                 }
@@ -29,7 +36,6 @@ const RestaurantList = (props) => {
     } else {
         return ( 
         <div>
-            Search for restaurants...
         </div>)
     }
  

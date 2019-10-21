@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SearchBar from '../components/SearchBar.jsx';
+import YelpSearchBar from '../components/YelpSearchBar.jsx';
 import SearchRestaurantList from '../components/SearchRestaurantList.jsx'
 
 import axios from 'axios';
@@ -13,7 +13,6 @@ class SearchRestaurantForm extends Component {
         }
 
         this.handleSearch  = this.handleSearch.bind(this);
-        this.handleAddRestaurant = this.handleAddRestaurant.bind(this);
       }
       handleSearch(event) {
         
@@ -35,38 +34,14 @@ class SearchRestaurantForm extends Component {
 
       }
 
-      handleAddRestaurant(restaurant) {
-        let restaurantObj = {
-          name: restaurant.name,
-          category: restaurant.categories[0].title,
-          price: restaurant.price ? restaurant.price: '$' ,
-          location: restaurant.location.display_address.join(' '),
-          url: restaurant.url,
-          phone: restaurant.display_phone,
-          image_url: restaurant.image_url
-        }
-
-       axios.post('/api/restaurant', restaurantObj)
-       .then((response) => {
-        console.log(response);
-        this.props.getAllRestaurants();
-        
-        
-       })
-       .catch((error)  => {
-        console.log(error);
-       }); 
-
-       
-
-
-      }
       render() {
         return (
           <div >
-            <SearchBar handleSearch={this.handleSearch}/>
+            <YelpSearchBar handleSearch={this.handleSearch}/>
 
-            <SearchRestaurantList restaurants={this.state.restaurants} handleAddRestaurant={this.handleAddRestaurant}/>
+            <SearchRestaurantList 
+            restaurants={this.state.restaurants} 
+            getAllRestaurants={this.props.getAllRestaurants}/>
           </div>
         );
       }

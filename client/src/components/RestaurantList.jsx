@@ -9,8 +9,15 @@ const RestaurantList = (props) => {
    
     return (
         <div>
-            <h3>Restaurants Listings:</h3>
+           
             <SearchList categories={categories} handleSearch={props.handleSearch}/>
+            <div style={{ padding: '15px', 
+                textAlign: 'center', 
+                background: '#d32323',
+                color: 'white',
+                fontSize: '20px' }}>
+            <h3>Restaurants Listings:</h3>
+            </div>
             <Table>
                     <TableBody>
             {

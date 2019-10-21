@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import RestaurantList from '../components/RestaurantList.jsx';
-import SearchBar from '../components/SearchBar.jsx';
+import SearchBar from '../components/YelpSearchBar.jsx';
 import SearchRestaurantForm from './SearchRestaurantForm.jsx';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -121,7 +121,14 @@ class App extends Component {
     
     return (
       <div className='App tc '>
-        <h2>Welcome to my Top Restaurant's List!</h2>
+        <div style={{ padding: '15px', 
+        textAlign: 'center', 
+        background: '#d32323',
+        color: 'white',
+        fontSize: '25px' }}>
+        <h2>Top Restaurant's List</h2>
+        </div>
+       
         <div>
         <Paper >
           <Tabs
