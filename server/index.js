@@ -38,6 +38,17 @@ app.get('/api/restaurants', async (req, res) => {
     }
   });
 
+  /*UPDATE restaurant */
+  app.put('/api/restaurant', async (req, res)=> {
+    try {
+      let restaurant = req.body;
+      const updateRestaurant = await restaurants.updateRestaurant(restaurant);
+      res.status(200).send(updateRestaurant);
+    } catch (e) {
+      res.status(400).send(e);
+    }
+  })
+
   /* DELETE restaurant */
   app.delete('/api/restaurant', async (req,res) => {
    
