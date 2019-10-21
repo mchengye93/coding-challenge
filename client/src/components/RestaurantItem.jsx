@@ -1,6 +1,8 @@
 import React from 'react';
 import UpdateRestaurantForm from './UpdateRestaurantForm.jsx';
 import DeleteRestaurantDialog from './DeleteRestaurantDialog.jsx';
+import TableCell from '@material-ui/core/TableCell';
+import TableRow from '@material-ui/core/TableRow';
 const RestaurantItem = (props) => {
  
     let {restaurant, getAllRestaurants} = props;
@@ -8,31 +10,30 @@ const RestaurantItem = (props) => {
         props.handleDeleteRestaurant(restaurant.id);
     }
     return (
-        <li className="restaurant">
-        <div className ="flex" >
-            <div className="w-25 pa1 ">
-                <img src={restaurant.image_url} alt={restaurant.name + 'photo'} height="100" width="100"/>
-            </div>
-            <div className="w-50 pa1" >
+        <TableRow key={restaurant.name}>
+                
+        <TableCell >  
+            <img src={restaurant.image_url} alt={restaurant.name + 'photo'} height="100" width="100"/>
+        </TableCell>
+        <TableCell >
             <a href={restaurant.url} ><strong>{restaurant.name}</strong></a>
             <em> {restaurant.categories}</em><br/>
             Price: {restaurant.price }<br/>
             {restaurant.phone} <br/>
             {restaurant.location}<br/>
-            </div>
-            <div className="w-25 pa1 ">
-                <UpdateRestaurantForm 
+        </TableCell>
+        <TableCell >  
+            <UpdateRestaurantForm 
                 restaurant={restaurant} 
                 getAllRestaurants={getAllRestaurants}/> <br/>
-                
-                <DeleteRestaurantDialog 
+
+            <DeleteRestaurantDialog 
                 restaurant={restaurant} 
                 getAllRestaurants={getAllRestaurants}/>
-            
-            </div>
-        </div>
-       
-        </li>
+        </TableCell>
+      </TableRow>
+
+        
     )
 }
 

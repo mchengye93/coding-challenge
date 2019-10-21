@@ -75,7 +75,7 @@ class DeleteRestaurantDialog extends Component {
                  Delete
                 </Button>
                 <Dialog open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
-                  <DialogTitle id="form-dialog-title">Update Restaurant</DialogTitle>
+                  <DialogTitle id="form-dialog-title">Delete Restaurant</DialogTitle>
                   <DialogContent>
                     <DialogContentText>
                       Are you sure you want to delete?

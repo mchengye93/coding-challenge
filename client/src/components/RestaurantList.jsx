@@ -2,6 +2,8 @@ import React from 'react';
 import RestaurantItem from './RestaurantItem.jsx';
 import SearchList from './SearchList.jsx';
 
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
 const RestaurantList = (props) => {
     let {restaurants, categories, handleDeleteRestaurant, getAllRestaurants} = props;
    
@@ -9,8 +11,8 @@ const RestaurantList = (props) => {
         <div>
             <h3>Restaurants Listings:</h3>
             <SearchList categories={categories} handleSearch={props.handleSearch}/>
-
-            <ul style={{listStyleType: 'none'}}>
+            <Table>
+                    <TableBody>
             {
                 restaurants.map((restaurant) => {
                     return <RestaurantItem 
@@ -20,7 +22,9 @@ const RestaurantList = (props) => {
                     getAllRestaurants={getAllRestaurants}/>
                 })
             }
-            </ul>
+                </TableBody>
+            </Table>
+           
             
         </div>
     )

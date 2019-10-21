@@ -1,7 +1,5 @@
 import React from 'react';
 
-// import Table from '@material-ui/core/Table';
-// import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 
@@ -14,10 +12,7 @@ const SearchRestaurantItem = (props) => {
     }
 
     return (
-        // <li className="restaurant">
-        // <Table>
-        //       <TableBody>
-           
+
               <TableRow key={restaurant.name}>
                 
                 <TableCell >  
@@ -34,10 +29,6 @@ const SearchRestaurantItem = (props) => {
                     <button onClick={handleAddRestaurant}>Add</button>
                 </TableCell>
               </TableRow>
-           
-        //   </TableBody>
-        // </Table>
-        // </li>
     )
 }
 
