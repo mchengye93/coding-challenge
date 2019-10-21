@@ -1,6 +1,8 @@
 import React from 'react';
 import SearchRestaurantItem from './SearchRestaurantItem.jsx';
 
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
 const RestaurantList = (props) => {
     let {restaurants} = props;
 
@@ -9,7 +11,8 @@ const RestaurantList = (props) => {
         
             <div className="pa1">
                 <h3>Yelp Results:</h3>
-                <ul style={{listStyleType: 'none'}}>
+                <Table>
+                    <TableBody>
                 {
                     restaurants.map((restaurant) => {
                         return <SearchRestaurantItem 
@@ -18,7 +21,8 @@ const RestaurantList = (props) => {
                         handleAddRestaurant= {props.handleAddRestaurant}/>
                     })
                 }
-                </ul>
+                    </TableBody>
+                </Table>
                 
             </div>
         )
