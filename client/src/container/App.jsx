@@ -19,7 +19,7 @@ class App extends Component {
       search:false,
       searchInput: '',
       category: 'All',
-      value: 1,
+  
     }
     this.handleDeleteRestaurant = this.handleDeleteRestaurant.bind(this);
     this.getAllRestaurants = this.getAllRestaurants.bind(this);
@@ -38,7 +38,9 @@ class App extends Component {
         let categories = this.getAllCategories(response.data);
         this.setState({
             restaurants: response.data,
-            categories: categories});
+            categories: categories,
+            search: 0,
+          });
         
     })
   }
@@ -135,7 +137,9 @@ class App extends Component {
         </Paper>
         </div>
         <div className='flex justify-center'>
-        {this.state.search ? <SearchRestaurantForm /> : <RestaurantList 
+        {this.state.search ? <SearchRestaurantForm 
+        getAllRestaurants={this.getAllRestaurants}
+        /> : <RestaurantList 
         restaurants={restaurantsList} 
         handleDeleteRestaurant={this.handleDeleteRestaurant}
         categories={this.state.categories}

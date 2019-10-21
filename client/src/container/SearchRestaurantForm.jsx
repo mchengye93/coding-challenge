@@ -49,6 +49,9 @@ class SearchRestaurantForm extends Component {
        axios.post('/api/restaurant', restaurantObj)
        .then((response) => {
         console.log(response);
+        this.props.getAllRestaurants();
+        
+        
        })
        .catch((error)  => {
         console.log(error);
@@ -62,7 +65,7 @@ class SearchRestaurantForm extends Component {
         return (
           <div >
             <SearchBar handleSearch={this.handleSearch}/>
-            
+
             <SearchRestaurantList restaurants={this.state.restaurants} handleAddRestaurant={this.handleAddRestaurant}/>
           </div>
         );
