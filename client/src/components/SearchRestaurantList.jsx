@@ -10,7 +10,10 @@ const RestaurantList = (props) => {
             <ul>
             {
                 restaurants.map((restaurant) => {
-                    return <SearchRestaurantItem key={restaurant.id} restaurant={restaurant}/>
+                    return <SearchRestaurantItem 
+                    key={restaurant.id} 
+                    restaurant={restaurant} 
+                    handleAddRestaurant= {props.handleAddRestaurant}/>
                 })
             }
             </ul>

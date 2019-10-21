@@ -3,6 +3,12 @@ import React from 'react';
 const SearchRestaurantItem = (props) => {
  
     let {restaurant} = props;
+
+    function handleAddRestaurant() {
+        console.log('called handleADd inside search item!', restaurant);
+        props.handleAddRestaurant(restaurant);
+    }
+
     return (
         <li className="restaurant">
         <div style={{display: 'flex'}}>
@@ -18,7 +24,7 @@ const SearchRestaurantItem = (props) => {
             {restaurant.location.display_address.join(' ')}<br/>
             </div>
             <div>
-            <button>Add</button>
+            <button onClick={handleAddRestaurant}>Add</button>
             </div>
         </div>
        

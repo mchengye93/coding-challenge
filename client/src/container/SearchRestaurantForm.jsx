@@ -37,7 +37,28 @@ class SearchRestaurantForm extends Component {
 
       }
 
-      handleAddRestaurant(event) {
+      handleAddRestaurant(restaurant) {
+        console.log('received restaurant at searchform', restaurant);
+        let restaurantObj = {
+          name: restaurant.name,
+          category: restaurant.categories[0].title,
+          price: restaurant.price ? restaurant.price: '$' ,
+          location: restaurant.location.display_address.join(' '),
+          url: restaurant.url,
+          phone: restaurant.display_phone,
+          image_url: restaurant.image_url
+        }
+
+       axios.post('/api/restaurant', restaurantObj)
+       .then((response) => {
+        console.log(response);
+       })
+       .catch((error)  => {
+        console.log(error);
+       }); 
+
+       
+
 
       }
       render() {
@@ -45,7 +66,7 @@ class SearchRestaurantForm extends Component {
           <div >
             <h2>Welcome to Search Restaurant!</h2>
             <SearchBar handleSearch={this.handleSearch}/>
-            <SearchRestaurantList restaurants={this.state.restaurants}/>
+            <SearchRestaurantList restaurants={this.state.restaurants} handleAddRestaurant={this.handleAddRestaurant}/>
           </div>
         );
       }
