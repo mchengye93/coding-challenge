@@ -11,14 +11,14 @@ const SearchRestaurantItem = (props) => {
     return (
         <li className="restaurant">
         <div style={{display: 'flex'}}>
-            <div >
+            <div className='pa1' >
                 <img src={restaurant.image_url} alt={restaurant.name + 'photo'} height="100" width="100"/>
             </div>
             <div >
 
-            <a href={restaurant.url} ><strong>{restaurant.name}</strong></a>
-            <em> {restaurant.categories[0].title}</em><br/>
-            Price: {restaurant.price ? restaurant.price: '$' }<br/>
+            <a href={restaurant.url} ><strong>{restaurant.name}</strong></a> <br/>
+            <em> {restaurant.categories[0].title} </em>
+            {restaurant.price ? restaurant.price: '$' }<br/>
             {restaurant.display_phone} <br/>
             {restaurant.location.display_address.join(' ')}<br/>
             </div>

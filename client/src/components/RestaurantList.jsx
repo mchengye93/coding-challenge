@@ -10,7 +10,7 @@ const RestaurantList = (props) => {
             <h3>Restaurants Listings:</h3>
             <SearchList categories={categories} handleSearch={props.handleSearch}/>
 
-            <ul>
+            <ul style={{listStyleType: 'none'}}>
             {
                 restaurants.map((restaurant) => {
                     return <RestaurantItem key={restaurant.id} restaurant={restaurant} handleDeleteRestaurant={props.handleDeleteRestaurant}/>

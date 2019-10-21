@@ -107,15 +107,20 @@ class App extends Component {
    
     
     return (
-      <div >
+      <div className='App tc '>
         <h2>Welcome to my Top Restaurant's List!</h2>
+        <div>
         <button onClick={this.addRestaurant}>Add Restaurant</button> <button onClick={this.search}>Search</button>
+        </div>
+        <div className='flex justify-center'>
         {this.state.search ? <SearchRestaurantForm /> : <RestaurantList 
         restaurants={restaurantsList} 
         handleDeleteRestaurant={this.handleDeleteRestaurant}
         categories={this.state.categories}
         handleSearch={this.handleSearch}/>
         } 
+        </div>
+      
       </div>
     );
   }

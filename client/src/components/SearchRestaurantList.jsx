@@ -7,7 +7,7 @@ const RestaurantList = (props) => {
     return (
         <div>
             <h3>Restaurants Listings:</h3>
-            <ul>
+            <ul style={{listStyleType: 'none'}}>
             {
                 restaurants.map((restaurant) => {
                     return <SearchRestaurantItem 

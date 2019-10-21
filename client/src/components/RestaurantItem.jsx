@@ -8,18 +8,18 @@ const RestaurantItem = (props) => {
     }
     return (
         <li className="restaurant">
-        <div style={{display: 'flex'}}>
-            <div >
+        <div className ="flex" >
+            <div className="w-25 pa1 ">
                 <img src={restaurant.image_url} alt={restaurant.name + 'photo'} height="100" width="100"/>
             </div>
-            <div >
+            <div className="w-50 pa1 " >
             <a href={restaurant.url} ><strong>{restaurant.name}</strong></a>
             <em> {restaurant.categories}</em><br/>
             Price: {restaurant.price }<br/>
             {restaurant.phone} <br/>
             {restaurant.location}<br/>
             </div>
-            <div>
+            <div className="w-25 pa1 ">
                 <button>Update</button> <br/>
                                         <br/>
                 <button onClick={handleDeleteRestaurant}>Delete</button>
