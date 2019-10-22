@@ -66,7 +66,7 @@ app.get('/api/restaurants', async (req, res) => {
 
 
 /* READ Yelp's restaurants */
-  app.get('/yelp', (req,res)=> {
+  app.get('/api/yelp', (req,res)=> {
     var term = req.query.term;
   
     const searchRequest = {
