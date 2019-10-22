@@ -76,7 +76,7 @@ class AddRestaurantForm extends Component {
                   Add
                 </Button>
                 <Dialog open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
-                  <DialogTitle id="form-dialog-title">Update Restaurant</DialogTitle>
+                  <DialogTitle id="form-dialog-title">Add Restaurant</DialogTitle>
                   <DialogContent>
                     <DialogContentText>
                       Please put corresponding information for the restaurant

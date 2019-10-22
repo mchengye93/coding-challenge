@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import RestaurantList from '../components/RestaurantList.jsx';
-import SearchBar from '../components/YelpSearchBar.jsx';
 import SearchRestaurantForm from './SearchRestaurantForm.jsx';
 
-import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -32,13 +30,14 @@ class App extends Component {
    
   }
   getAllRestaurants() {
-    console.log('calling get all restaurants');
+
     axios.get('/api/restaurants')
     .then((response)=> {
         let categories = this.getAllCategories(response.data);
         this.setState({
             restaurants: response.data,
             categories: categories,
+            category: 'All',
             search: 0,
           });
         
@@ -62,7 +61,6 @@ class App extends Component {
   handleDeleteRestaurant(restaurantId) {
     axios.delete('/api/restaurant', {data: { id: restaurantId}})
     .then((response) => {
-      console.log(response);
       this.getAllRestaurants();
       
     })
@@ -72,15 +70,12 @@ class App extends Component {
 
   }
   handleSearch(e) {
-    console.log("handleSearch called!");
+
     e.preventDefault();
-    console.log(e.target);
-    console.log(e.target.searchInput.value); 
-    console.log(e.target.category.value);
     let search = e.target.searchInput.value;
     let cat = e.target.category.value;
 
-    console.log(search, cat);
+  
     this.setState({
       searchInput: search,
       category:cat
@@ -88,10 +83,13 @@ class App extends Component {
     
   }
   handleChange(e){
-    console.log(e.target.innerHTML);
+  
     let text = e.target.innerHTML;
     if (text.toUpperCase() === 'SEARCH') {
-      this.setState({search: 0});
+      this.setState({
+        search: 0,
+        category: 'All'
+      });
     } else {
       this.setState({search: 1});
     }
@@ -100,20 +98,17 @@ class App extends Component {
 
 
   render() {
-    //console.log(this.state);
+  
     let {searchInput , category, restaurants} = this.state;
     let restaurantsList = restaurants;
-    console.log(restaurants);
+    
     
     if (category !== 'All') {
       restaurantsList = restaurants.filter((restaurant) => {
-        console.log('searchinout:',searchInput);
         return restaurant.name.toLowerCase().includes(searchInput.toLowerCase()) && restaurant.categories === category;
       })
     } else {
       restaurantsList = restaurants.filter((restaurant) => {
-        console.log('searchinout:',searchInput);
-  
         return restaurant.name.toLowerCase().includes(searchInput.toLowerCase());
       })
     }
