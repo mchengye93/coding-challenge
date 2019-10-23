@@ -5,7 +5,7 @@
 1. Frontend (React.js)
 2. Backend (Express)
 3. Database (PostgreSQL)
-4. API (Yelp's API)
+4. API ([Yelp's API](https://www.yelp.com/fusion))
 
 ## Installation
 
@@ -14,6 +14,7 @@ npm install
 npm run react-dev
 npm start
 ```
+Open [http://localhost:3000/](http://localhost:3000/) to see the app.
 
 ## SETUP PostgresSQL DATABASE
 
@@ -67,4 +68,4 @@ CREATE TABLE restaurants (
 | /api/restaurant/ | DELETE  | {restaurantId: INT} | Status: 200  | This will delete a record with given restautant record if it exists on restaurants table.  | 
 | /api/yelp/ | GET  | {"term": VARCHAR} | Status: 200  {"name": VARCHAR, "image_url": VARCHAR, "url": VARCHAR "price": VARCHAR, "categories": [{"alias": VARCHAR,"title": VARCHAR}, "location": {"address1": VARCHAR, "address2": VARCHAR, "address3": VARCHAR,"city": VARCHAR, "zip_code": VARCHAR,"country": VARCHAR, "state": VARCHAR, "display_address": [VARCHAR]}, "display_phone": VARCHAR}| This request will a list of yelp business records that matches term|
 
-Then open [http://localhost:3000/](http://localhost:3000/) to see your app.<br>
+
