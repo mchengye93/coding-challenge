@@ -15,11 +15,13 @@ npm run react-dev
 npm start
 ```
 
-##SETUP PostgresSQL DATABASE
+## SETUP PostgresSQL DATABASE
 
-1. psql -U postgres
+1. Make sure to modify dn-postgres/dbconfig.js file to connect to your PostgreSQL database
 
-2. Once connected run the following commands:
+2. psql -U postgres
+
+3. Once connected run the following commands:
 DROP DATABASE IF EXISTS restaurants;
 
 CREATE DATABASE restaurants;
@@ -37,12 +39,12 @@ CREATE TABLE restaurants (
   image_url text
 );
 
-### Using the Application
+## Using the Application
 1. Search for restaurant to add to list
-    - Click on "ADD RESUTANRANT" tab
+    - Click on "ADD RESTAURANT" tab
     - Provide a restaurant name on search (search location based in San Francisco)
     - Click on "ADD" button and this will create a form to add restaurant to list
-        - Modify form as you like
+        - Modify form as you like and click add to add to application
 2. Search for top restaurants in database
     - Click on "SEARCH" tab and you can find top by categories
     - You can also search in list to see if it exist on list
