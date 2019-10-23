@@ -41,8 +41,7 @@ app.get('/api/restaurants', async (req, res) => {
   /*UPDATE restaurant */
   app.put('/api/restaurant', async (req, res)=> {
     try {
-      let restaurant = req.body;
-      console.log(restaurant);  
+      let restaurant = req.body; 
       const updateRestaurant = await restaurants.updateRestaurant(restaurant);
       res.status(200).send(updateRestaurant);
     } catch (e) {

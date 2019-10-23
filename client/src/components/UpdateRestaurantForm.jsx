@@ -43,8 +43,7 @@ class UpdateRestaurantForm extends Component {
     handleUpdate(event) {
     event.preventDefault();
     axios.put('/api/restaurant', this.state)
-    .then((response)=> {
-        console.log(response); 
+    .then((response)=> { 
         this.setState({open:false});  
         this.props.getAllRestaurants();      
     }).catch((error)=> {

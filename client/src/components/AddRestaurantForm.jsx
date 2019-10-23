@@ -69,7 +69,6 @@ class AddRestaurantForm extends Component {
       }
 
     render() {
-        console.log(this.state);
             return (
                 <div>
                 <Button variant="contained" color="primary" onClick={this.handleClickOpen}>

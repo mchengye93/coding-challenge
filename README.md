@@ -23,6 +23,7 @@ Open [http://localhost:3000/](http://localhost:3000/) to see the app.
 2. psql -U postgres
 
 3. Once connected run the following commands:
+
 DROP DATABASE IF EXISTS restaurants;
 
 CREATE DATABASE restaurants;

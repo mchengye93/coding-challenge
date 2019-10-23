@@ -45,7 +45,6 @@ class App extends Component {
   }
 
   getAllCategories(restaurants) {
-    console.log('calling getAllCategories!');
     let categories = [];
 
     for (let i = 0; i < restaurants.length; i++) {
